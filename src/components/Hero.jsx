@@ -28,7 +28,7 @@ export default function Hero() {
           <h1 className="text-white  font-playfair font-semibold  text-[64px] ">
             Rejuvenate Your Spirit. Relax Your Mind, Body And Soul.
           </h1>
-          <div className="flex lg:flex-row md:flex-row flex-col gap-5">
+          <div className="flex lg:flex-row md:flex-row flex-col lg:gap-5 md:gap-2 gap-1">
             <button className="font-helvetica min-w-2xs  rounded-4xl font-semibold text-[16px] mt-10 py-4 px-14 bg-[#F4EBE9] text-[#00192D]">
               Book Appointments
             </button>

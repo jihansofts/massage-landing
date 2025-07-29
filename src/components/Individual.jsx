@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import Image from "next/image";
 
 const Individual = () => {
-  const indusData = [
+  const rawData = [
     {
       title: "Head Spa",
       image: "/images/ind1.png",
@@ -73,31 +73,42 @@ const Individual = () => {
     },
   ];
 
+  // Duplicate data to simulate infinite scroll
+  const indusData = [...rawData, ...rawData];
+
   const [x, setX] = useState(0);
   const controls = useAnimation();
-  const cardWidth = 280; // width + gap approximation
+  const cardWidth = 280;
   const visibleCards = 4;
-
-  const maxOffset = -cardWidth * (indusData.length - visibleCards);
+  const totalWidth = cardWidth * indusData.length;
 
   const scroll = (dir) => {
     let nextX = x + (dir === "left" ? cardWidth : -cardWidth);
-    if (nextX > 0) nextX = 0;
-    if (nextX < maxOffset) nextX = maxOffset;
     setX(nextX);
     controls.start({ x: nextX });
+
+    // Looping logic
+    if (Math.abs(nextX) >= totalWidth / 2) {
+      setTimeout(() => {
+        setX(0);
+        controls.set({ x: 0 }); // Reset immediately without animation
+      }, 500);
+    }
+    if (nextX > 0) {
+      setTimeout(() => {
+        setX(-totalWidth / 2);
+        controls.set({ x: -totalWidth / 2 }); // Reset immediately
+      }, 500);
+    }
   };
 
   return (
     <section className="bg-[#F4EBE9]">
-      <div className="container mx-auto py-10 px-4 relative">
-        {/* Header */}
+      <div className="container mx-auto py-20 px-4 relative">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold font-Playfair text-primary text-center w-full">
+          <h1 className="text-4xl md:text-5xl font-bold font-Playfair text-primary text-start w-full">
             Individual Services
           </h1>
-
-          {/* Buttons - Desktop Only */}
           <div className="hidden lg:flex gap-4 absolute right-10">
             <button
               onClick={() => scroll("left")}
@@ -106,25 +117,25 @@ const Individual = () => {
             </button>
             <button
               onClick={() => scroll("right")}
-              className="border border-primary  text-primary p-3 rounded-full cursor-pointer shadow hover:bg-opacity-80 transition">
+              className="border border-primary text-primary p-3 rounded-full cursor-pointer shadow hover:bg-opacity-80 transition">
               <FaArrowRight />
             </button>
           </div>
         </div>
 
-        {/* Scrollable Cards */}
         <div className="overflow-hidden">
           <motion.div
             animate={controls}
-            transition={{ duration: 0.5 }}
-            className="flex gap-6">
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="flex gap-6"
+            style={{ width: totalWidth }}>
             {indusData.map((item, idx) => (
               <motion.div
-                key={item.title}
+                key={`${item.title}-${idx}`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                transition={{ duration: 0.6, delay: idx * 0.05 }}
                 className="min-w-[250px] lg:w-[250px] bg-white rounded-xl shadow-md p-6 flex-shrink-0 flex flex-col items-center text-center hover:shadow-lg transition">
                 <Image
                   src={item.image}

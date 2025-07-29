@@ -53,7 +53,7 @@ const Priceing = () => {
   ];
 
   return (
-    <div className="relative bg-[#F4EBE9] w-full min-h-screen pt-40 px-4 z-10">
+    <div className="relative bg-[#F4EBE9] w-full  py-20 px-4 z-10">
       <h1 className="text-5xl md:text-6xl text-center font-bold font-Playfair text-primary mb-16">
         Prices and Services
       </h1>

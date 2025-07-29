@@ -3,7 +3,7 @@ import Image from "next/image";
 const BuyPage = () => {
   return (
     <section className="bg-[#F4EBE9]">
-      <div className="container mx-auto px-4 pt-10">
+      <div className="container mx-auto px-4 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center lg:gap-8 md:gap-5">
           <Image
             src="/images/buy.png"
