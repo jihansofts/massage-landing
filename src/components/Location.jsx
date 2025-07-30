@@ -7,7 +7,7 @@ export default function Location() {
         <h2 className="text-5xl md:text-6xl sm:text-2xl text-[30px]  text-center font-bold font-Playfair text-primary">
           Location
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:mt-0 md:mt-5 mt-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:mt-10 md:mt-5 mt-5">
           <div>
             <Image
               src="/images/location1.png"
