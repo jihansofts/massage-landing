@@ -120,7 +120,7 @@ const Individual = () => {
 
   return (
     <section className="bg-[#F4EBE9]">
-      <div className="container mx-auto lg:py-20 md:py-10  px-4 relative">
+      <div className="container mx-auto lg:py-20 md:py-10 pb-10  px-4 relative">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-5xl md:text-6xl sm:text-2xl text-[30px]  text-center font-bold font-Playfair text-primary">
             Individual Services

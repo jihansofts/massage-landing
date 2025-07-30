@@ -11,8 +11,8 @@ export default function Navbar() {
     { name: "Services", id: "services" },
     { name: "Packages", id: "packages" },
     { name: "About Us", id: "about" },
-    { name: "Providers", id: "providers" },
     { name: "FAQ", id: "faq" },
+    { name: "Providers", id: "providers" },
   ];
 
   const handleLinkClick = () => {
@@ -45,7 +45,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <a
               href="tel:+1(424)358-7799"
-              className="bg-[#F3EAE7] text-[#0A1F2C] font-helvetica text-[14px] font-medium px-10 py-4 rounded-full hover:bg-[#ebdcd9] transition">
+              className="bg-[#F3EAE7]  text-[#0A1F2C] font-helvetica text-[14px] font-semibold px-10 py-4 rounded-full hover:bg-[#ebdcd9] transition">
               Contact Us
             </a>
           </div>
@@ -75,9 +75,9 @@ export default function Navbar() {
             ))}
             <li>
               <a
-                href="#contact"
+                href="tel:+1(424)358-7799"
                 onClick={handleLinkClick}
-                className="bg-[#F3EAE7] text-[#0A1F2C] px-4 py-2 rounded-full inline-block text-center">
+                className="bg-[#F3EAE7] text-[#0A1F2C] font-semibold px-4 py-2 rounded-full inline-block text-center">
                 Contact Us
               </a>
             </li>

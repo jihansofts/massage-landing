@@ -19,11 +19,8 @@ export default function Hero() {
       <div className="container z-100  mx-auto relative h-full flex flex-col justify-start items-start text-left ">
         <Navbar />
         <div className="max-w-3xl px-6 mt-10">
-          <p className="text-white font-playfair  font-medium  text-[24px] ">
-            Licensed
-          </p>
-          <p className="text-white mt-4 font-playfair font-medium  text-[24px] ">
-            Message Therapists, Estheticians, Cosmetologists
+          <p className="text-white mt-4 font-playfair font-semibold  text-[24px] ">
+            Solo Spa
           </p>
           <h1 className="text-white  font-playfair font-semibold  text-[64px] ">
             Rejuvenate Your Spirit. Relax Your Mind, Body And Soul.
