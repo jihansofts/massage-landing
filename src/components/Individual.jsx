@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React, { useState, useRef } from "react";
+import { motion, useAnimation, PanInfo } from "framer-motion";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import Image from "next/image";
 
@@ -75,15 +75,20 @@ const Individual = () => {
 
   // Duplicate data to simulate infinite scroll
   const indusData = [...rawData, ...rawData];
-
   const [x, setX] = useState(0);
   const controls = useAnimation();
-  const cardWidth = 280;
-  const visibleCards = 4;
+  const containerRef = useRef(null);
+  const cardWidth = 250;
   const totalWidth = cardWidth * indusData.length;
 
   const scroll = (dir) => {
-    let nextX = x + (dir === "left" ? cardWidth : -cardWidth);
+    const container = containerRef.current;
+    if (!container) return;
+
+    const containerWidth = container.offsetWidth;
+    const scrollAmount = Math.min(containerWidth, cardWidth * 2);
+
+    let nextX = x + (dir === "left" ? scrollAmount : -scrollAmount);
     setX(nextX);
     controls.start({ x: nextX });
 
@@ -91,22 +96,33 @@ const Individual = () => {
     if (Math.abs(nextX) >= totalWidth / 2) {
       setTimeout(() => {
         setX(0);
-        controls.set({ x: 0 }); // Reset immediately without animation
+        controls.set({ x: 0 });
       }, 500);
     }
     if (nextX > 0) {
       setTimeout(() => {
         setX(-totalWidth / 2);
-        controls.set({ x: -totalWidth / 2 }); // Reset immediately
+        controls.set({ x: -totalWidth / 2 });
       }, 500);
+    }
+  };
+
+  // Fixed handleDragEnd with proper typing
+  const handleDragEnd = (event, info) => {
+    if (info.offset.x > 50) {
+      // Swiped right
+      scroll("left");
+    } else if (info.offset.x < -50) {
+      // Swiped left
+      scroll("right");
     }
   };
 
   return (
     <section className="bg-[#F4EBE9]">
-      <div className="container mx-auto py-20 px-4 relative">
+      <div className="container mx-auto lg:py-20 md:py-10  px-4 relative">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold font-Playfair text-primary text-start w-full">
+          <h1 className="text-5xl md:text-6xl sm:text-2xl text-[30px]  text-center font-bold font-Playfair text-primary">
             Individual Services
           </h1>
           <div className="hidden lg:flex gap-4 absolute right-10">
@@ -123,9 +139,26 @@ const Individual = () => {
           </div>
         </div>
 
-        <div className="overflow-hidden">
+        {/* Mobile controls - visible only on mobile */}
+        <div className="hidden justify-center gap-4 mb-6">
+          <button
+            onClick={() => scroll("left")}
+            className="bg-[#D99D84] text-white cursor-pointer p-3 rounded-full shadow hover:bg-opacity-80 transition">
+            <FaArrowLeft />
+          </button>
+          <button
+            onClick={() => scroll("right")}
+            className="border border-primary text-primary p-3 rounded-full cursor-pointer shadow hover:bg-opacity-80 transition">
+            <FaArrowRight />
+          </button>
+        </div>
+
+        <div className="overflow-hidden" ref={containerRef}>
           <motion.div
             animate={controls}
+            drag="x"
+            dragConstraints={{ left: -totalWidth, right: 0 }}
+            onDragEnd={handleDragEnd}
             transition={{ duration: 0.5, ease: "easeInOut" }}
             className="flex gap-6"
             style={{ width: totalWidth }}>
@@ -136,7 +169,7 @@ const Individual = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.05 }}
-                className="min-w-[250px] lg:w-[250px] bg-white rounded-xl shadow-md p-6 flex-shrink-0 flex flex-col items-center text-center hover:shadow-lg transition">
+                className="min-w-[250px] w-[250px] bg-white rounded-xl shadow-md p-6 flex-shrink-0 flex flex-col items-center text-center hover:shadow-lg transition">
                 <Image
                   src={item.image}
                   alt={item.title}

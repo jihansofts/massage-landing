@@ -33,11 +33,11 @@ export default function About() {
               alt="About Image"
               width={400}
               height={500}
-              className="rounded-md object-cover xl:w-[900px] lg:w-[700px] md:w-[500px] sm:w-[400px] w-[300px]"
+              className="rounded-md object-cover xl:w-[900px] lg:w-[700px] md:w-[500px] sm:w-[400px] w-full"
             />
 
             {/* Circle Badge */}
-            <div className="absolute bg-[#D99D84] rounded-full w-32 h-32 flex items-center justify-center ;lg:-left-10 md:-left-10 top-1/6 -translate-y-1/2 ">
+            <div className="absolute bg-[#D99D84] rounded-full lg:w-32 lg:h-32 w-20 h-20 flex items-center justify-center ;lg:-left-10 md:-left-10 top-[-8px] -translate-y-1/2 ">
               <Image
                 src="/images/circle-badge.png"
                 alt="Logo Badge"

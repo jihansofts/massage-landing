@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 
-// FAQ data
 const faqData = [
   {
     question: "What services do you offer at Eve’s Fountain Spa and Massage?",
@@ -67,44 +66,49 @@ export default function Faq() {
 
   return (
     <section className="bg-[#F4EBE9] py-20 px-4">
-      <div className="container mx-auto">
-        <h2 className="text-center  text-[#D99D84] text-[56px] font-semibold mb-10 font-playfair">
+      <div className="container mx-auto ">
+        <h2 className="text-5xl md:text-6xl sm:text-2xl text-[30px]  text-center font-bold font-Playfair text-primary">
           FAQ
         </h2>
 
-        <div className="space-y-4">
-          {faqData.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl py-4 shadow-sm overflow-hidden">
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="flex items-center cursor-pointer justify-between w-full px-6 py-4 text-left font-medium text-[#01203AC9] focus:outline-none">
-                <span className="text-[28px] font-playfair font-bold">
-                  {index + 1}. {item.question}
-                </span>
-                <motion.div
-                  animate={{ rotate: activeIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}>
-                  <FiChevronDown color="#D99D84" size={30} />
-                </motion.div>
-              </button>
+        <div className="space-y-4 lg:mt-0 md:mt-5 mt-10">
+          {faqData.map((item, index) => {
+            const isOpen = activeIndex === index;
 
-              <AnimatePresence initial={false}>
-                {activeIndex === index && (
+            return (
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-md transition-all duration-300">
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="flex items-center justify-between w-full px-6 py-5 text-left cursor-pointer focus:outline-none">
+                  <span className="lg:text-[20px] md:text-[18px] text-[16px] font-playfair font-bold text-[#01203A]">
+                    {index + 1}. {item.question}
+                  </span>
                   <motion.div
-                    key="content"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="px-6 pb-4 text-[#726767] font-playfair font-medium text-[18px]">
-                    <p>{item.answer}</p>
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}>
+                    <FiChevronDown size={28} color="#D99D84" />
                   </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ maxHeight: 0, opacity: 0 }}
+                      animate={{ maxHeight: 500, opacity: 1 }}
+                      exit={{ maxHeight: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="px-6 overflow-hidden">
+                      <div className="py-3 text-[#726767] font-playfair text-[17px]">
+                        {item.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
