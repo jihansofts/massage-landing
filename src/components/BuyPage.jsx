@@ -23,9 +23,11 @@ const BuyPage = () => {
               your favorite products without immediate payment. Shop with ease
               and experience the freedom of spreading your payments over time!
             </p>
-            <button className="bg-[#00192D] px-8 py-3 text-white rounded-full">
+            <a
+              href="tel:+14243587799"
+              className="bg-[#00192D] flex justify-center items-center max-w-2xs px-8 py-3 text-white rounded-full">
               Book Appointments
-            </button>
+            </a>
           </div>
         </div>
       </div>

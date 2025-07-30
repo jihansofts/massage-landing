@@ -29,10 +29,14 @@ export default function Hero() {
             Rejuvenate Your Spirit. Relax Your Mind, Body And Soul.
           </h1>
           <div className="flex lg:flex-row md:flex-row flex-col lg:gap-5 md:gap-2 gap-0">
-            <button className="font-helvetica min-w-2xs  rounded-4xl font-semibold text-[16px] mt-10 py-4 px-14 bg-[#F4EBE9] text-[#00192D]">
+            <a
+              href="tel:+14243587799"
+              className="font-helvetica min-w-2xs flex justify-center items-center cursor-pointer rounded-4xl font-semibold text-[16px] mt-10 py-4 px-14 bg-[#F4EBE9] text-[#00192D]">
               Book Appointments
-            </button>
-            <a href="#services" className="font-helvetica flex justify-center items-center cursor-pointer min-w-2xs rounded-4xl font-semibold text-[16px] lg:mt-10 md:mt-5 mt-5 py-4 px-14 border-1 border-white text-white ">
+            </a>
+            <a
+              href="#services"
+              className="font-helvetica flex justify-center items-center cursor-pointer min-w-2xs rounded-4xl font-semibold text-[16px] lg:mt-10 md:mt-5 mt-5 py-4 px-14 border-1 border-white text-white ">
               Our Services
             </a>
           </div>

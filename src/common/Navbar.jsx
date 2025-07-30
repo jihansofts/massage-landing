@@ -44,7 +44,7 @@ export default function Navbar() {
           {/* Contact Button */}
           <div className="hidden md:block">
             <a
-              href="#contact"
+              href="tel:+1(424)358-7799"
               className="bg-[#F3EAE7] text-[#0A1F2C] font-helvetica text-[14px] font-medium px-10 py-4 rounded-full hover:bg-[#ebdcd9] transition">
               Contact Us
             </a>
