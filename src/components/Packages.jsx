@@ -25,7 +25,7 @@ const Packages = () => {
       title: "Dreamy Hair",
       price: "$650",
       list: ["Head Spa $320 (90)", "Hair Botox $400 (90)"],
-      thour: "(6 hours)",
+      thour: "(3 hours)",
     },
     {
       image: "/images/pack3.png",

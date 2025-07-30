@@ -37,7 +37,7 @@ export default function About() {
             />
 
             {/* Circle Badge */}
-            <div className="absolute bg-[#D99D84] rounded-full lg:w-32 lg:h-32 w-20 h-20 flex items-center justify-center lg:-left-10 md:-left-10 lg:top-1/5 md:top-[-8px] top-[-8px] -translate-y-1/2 ">
+            <div className="absolute bg-[#D99D84] rounded-full lg:w-32 lg:h-32 w-20 h-20 flex items-center justify-center lg:-left-10 md:-left-10 lg:top-1/5 md:top-[-8px] top-[-8px]  -translate-y-1/2 ">
               <Image
                 src="/images/circle-badge.png"
                 alt="Logo Badge"

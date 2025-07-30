@@ -49,7 +49,7 @@ export default function Hero() {
                 className="lg:mt-10 md:mt-8 mt-5 mx-auto"
               />
             </div>
-            <div className="w-1/2 sm:w-auto">
+            {/* <div className="w-1/2 sm:w-auto">
               <Image
                 src="/images/brand2.png"
                 alt="arrow"
@@ -57,7 +57,7 @@ export default function Hero() {
                 height={100}
                 className="lg:mt-10 md:mt-8 mt-5 mx-auto"
               />
-            </div>
+            </div> */}
             <div className="w-1/2 sm:w-auto">
               <Image
                 src="/images/brand3.png"
