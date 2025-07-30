@@ -65,13 +65,13 @@ export default function Faq() {
   };
 
   return (
-    <section className="bg-[#F4EBE9] py-20 px-4">
+    <section id="faq" className="bg-[#F4EBE9] py-20 px-4">
       <div className="container mx-auto ">
         <h2 className="text-5xl md:text-6xl sm:text-2xl text-[30px]  text-center font-bold font-Playfair text-primary">
           FAQ
         </h2>
 
-        <div className="space-y-4 lg:mt-0 md:mt-5 mt-10">
+        <div className="space-y-4 lg:mt-10 md:mt-5 mt-10">
           {faqData.map((item, index) => {
             const isOpen = activeIndex === index;
 

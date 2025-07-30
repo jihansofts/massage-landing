@@ -32,9 +32,9 @@ export default function Hero() {
             <button className="font-helvetica min-w-2xs  rounded-4xl font-semibold text-[16px] mt-10 py-4 px-14 bg-[#F4EBE9] text-[#00192D]">
               Book Appointments
             </button>
-            <button className="font-helvetica min-w-2xs rounded-4xl font-semibold text-[16px] lg:mt-10 md:mt-5 mt-5 py-4 px-14 border-1 border-white text-white ">
+            <a href="#services" className="font-helvetica flex justify-center items-center cursor-pointer min-w-2xs rounded-4xl font-semibold text-[16px] lg:mt-10 md:mt-5 mt-5 py-4 px-14 border-1 border-white text-white ">
               Our Services
-            </button>
+            </a>
           </div>
           <div className="flex flex-wrap lg:gap-10 md:gap-5 gap-2 lg:justify-start md:justify-center justify-center">
             <div className="w-1/2 sm:w-auto">

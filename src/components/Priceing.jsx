@@ -55,7 +55,7 @@ const Priceing = () => {
   ];
 
   return (
-    <div className="relative bg-[#F4EBE9] w-full py-20 px-4 z-10">
+    <div id="services" className="relative bg-[#F4EBE9] w-full py-20 px-4 z-10">
       {/* Header Info Box */}
       <div className="absolute lg:top-0 md:top-10 top-[30px] px-4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30 w-full max-w-6xl">
         <div className="py-6 px-6 sm:px-10 bg-white border border-gray-100 rounded-2xl shadow-xl">

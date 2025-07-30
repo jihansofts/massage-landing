@@ -13,7 +13,7 @@ const BuyPage = () => {
             className="w-full h-auto"
           />
           <div className="text-left space-y-8">
-            <h1 className="text-5xl md:text-6xl sm:text-2xl text-[30px]  lg:mt-0 md:mt-5 mt-5 text-center font-bold font-Playfair text-primary">
+            <h1 className="text-5xl md:text-6xl sm:text-2xl text-[30px]  lg:mt-0 md:mt-5 mt-5 text-start font-bold font-Playfair text-primary">
               Buy Now, Pay Later
             </h1>
             <p className="text-black/87">

@@ -63,7 +63,7 @@ const Packages = () => {
   const visiblePackages = packages.slice(index, index + 2);
 
   return (
-    <div className="bg-white py-16">
+    <div id="packages" className="bg-white py-16">
       <div className="container mx-auto px-4 max-w-7xl space-y-10 overflow-hidden">
         <h2 className="text-4xl md:text-6xl text-center font-bold font-Playfair text-primary">
           Pretty Me Packages

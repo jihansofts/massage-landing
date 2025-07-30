@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 
@@ -6,16 +7,20 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    "Home",
-    "Services",
-    "Packages",
-    "About Us",
-    "Providers",
-    "FAQ",
+    { name: "Home", id: "home" },
+    { name: "Services", id: "services" },
+    { name: "Packages", id: "packages" },
+    { name: "About Us", id: "about" },
+    { name: "Providers", id: "providers" },
+    { name: "FAQ", id: "faq" },
   ];
 
+  const handleLinkClick = () => {
+    setIsOpen(false); // close mobile menu after click
+  };
+
   return (
-    <nav className="w-full px-4  py-4 bg-transparent flex justify-center">
+    <nav className="w-full px-4 py-4 bg-transparent flex justify-center">
       <div className="w-full container bg-white rounded-full flex items-center justify-between px-10 py-6 shadow-md">
         {/* Logo */}
         <div className="text-[24px] font-helvetica font-semibold text-[#00192D]">
@@ -26,11 +31,11 @@ export default function Navbar() {
         <div className="flex items-center space-x-8">
           <ul className="hidden md:flex items-center gap-8 text-[#00192D] font-medium">
             {navLinks.map((link) => (
-              <li key={link}>
+              <li key={link.id}>
                 <a
-                  href="#"
+                  href={`#${link.id}`}
                   className="hover:text-[#D99D84] text-[16px] font-helvetica font-semibold transition">
-                  {link}
+                  {link.name}
                 </a>
               </li>
             ))}
@@ -39,7 +44,7 @@ export default function Navbar() {
           {/* Contact Button */}
           <div className="hidden md:block">
             <a
-              href="#"
+              href="#contact"
               className="bg-[#F3EAE7] text-[#0A1F2C] font-helvetica text-[14px] font-medium px-10 py-4 rounded-full hover:bg-[#ebdcd9] transition">
               Contact Us
             </a>
@@ -55,22 +60,23 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden absolute top-25 left-4 right-4 bg-white rounded-xl shadow-lg p-4 z-40">
           <ul className="flex flex-col gap-4 text-[#0A1F2C] font-medium">
             {navLinks.map((link) => (
-              <li key={link}>
+              <li key={link.id}>
                 <a
-                  href="#"
+                  href={`#${link.id}`}
+                  onClick={handleLinkClick}
                   className="block hover:text-[#D99D84] text-[16px] font-medium">
-                  {link}
+                  {link.name}
                 </a>
               </li>
             ))}
             <li>
               <a
-                href="#"
+                href="#contact"
+                onClick={handleLinkClick}
                 className="bg-[#F3EAE7] text-[#0A1F2C] px-4 py-2 rounded-full inline-block text-center">
                 Contact Us
               </a>

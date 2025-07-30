@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section className="bg-[#2f4454] py-12  text-white">
+    <section id="about" className="bg-[#2f4454] py-12  text-white">
       <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-1 lg:px-0 md:px-4 px-4 items-center gap-10 relative mx-auto ">
         {/* Left Content - CONTAINED */}
         <div className="z-10 lg:ml-48 md:ml-32 space-y-10">
@@ -37,7 +37,7 @@ export default function About() {
             />
 
             {/* Circle Badge */}
-            <div className="absolute bg-[#D99D84] rounded-full lg:w-32 lg:h-32 w-20 h-20 flex items-center justify-center ;lg:-left-10 md:-left-10 top-[-8px] -translate-y-1/2 ">
+            <div className="absolute bg-[#D99D84] rounded-full lg:w-32 lg:h-32 w-20 h-20 flex items-center justify-center lg:-left-10 md:-left-10 lg:top-1/5 md:top-[-8px] top-[-8px] -translate-y-1/2 ">
               <Image
                 src="/images/circle-badge.png"
                 alt="Logo Badge"

@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 export default function Providers() {
   return (
-    <section className="py-10 ">
+    <section id="providers" className="py-10 ">
       <div className="container mx-auto relative min-h-[700px]">
         <div className="absolute inset-0 -z-10">
           <Image src="/images/providers.png" alt="Hero" fill className="" />
