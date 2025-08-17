@@ -131,7 +131,7 @@ const Priceing = () => {
               {/* Header */}
               <div className="flex justify-between items-center px-6 py-5">
                 <div className="flex items-center gap-4">
-                  <div className="bg-[#D99D84] flex items-center justify-center p-3 rounded-full">
+                  <div className="bg-[#D99D84] w-12 h-12 flex items-center justify-center p-3 rounded-full">
                     <Image
                       src={service.icon}
                       alt={service.title}
